@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/firstFragment"
+        android:icon="@drawable/vector"
+        android:title="Translator" />
+    <item
+        android:id="@+id/secondFragment"
+        android:icon="@drawable/shape"
+        android:title="Lovely" />
+    <item
+        android:id="@+id/thirdFragment"
+        android:icon="@drawable/group_38"
+        android:title="Kaz" />
+    <item
+        android:id="@+id/fourthFragment"
+        android:icon="@drawable/shape__1_"
+        android:title="Search" />
+    <item
+        android:id="@+id/fifthFragment"
+        android:icon="@drawable/account_1"
+        android:title="Account" />
+</menu>
