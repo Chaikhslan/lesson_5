@@ -1,13 +1,10 @@
 package com.example.lesson_5
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.ViewTreeObserver
-import android.widget.Adapter
+import android.widget.ImageSwitcher
 import android.widget.Toast
-import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
@@ -19,21 +16,31 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
 
     private var adapter: NameAdapter? = null
     private val list = mutableListOf<String>()
+    private var mImageSwitcher: ImageSwitcher? = null
     private var layoutManager: LinearLayoutManager? = null
     private val scrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
         }
 
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            if (dx == 0) {
-                btn_scroll.isGone
-            } else btn_scroll.visibility
+            if (dy > 0) {
+                btn_scroll.visibility = View.GONE
+            } else if (dy < 0) {
+                btn_scroll.visibility = View.VISIBLE
+            }
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
+        changeStyle()
+    }
+
+    private fun changeStyle() {
+        moon_style.setOnClickListener {
+
+        }
     }
 
     private fun setupView() {
@@ -48,25 +55,21 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
                 Toast.makeText(context, "Введите сообщения", Toast.LENGTH_LONG).show()
             } else messageLatin(text)
         }
-//        btn_scroll.setOnClickListener {
-//            Toast.makeText(context, "сообщения", Toast.LENGTH_LONG).show()
-//            recycler_view.scrollToPosition(list.size)
-//        }
         btn_scroll.setOnClickListener(View.OnClickListener {
 //            v -> v.visibility = View.GONE
             scrollToTop()
         })
 
-        adapter = Adapter(
-                onDeleteClickListener = { id: Long ->
-                    val position = list.indexOfFirst { it == id }
-                    if (position > -1) {
-                        adapter?.setItems(list)
-                    }
-                }
-        )
+//        adapter = Adapter(
+//                onDeleteClickListener = { id: Long ->
+//                    val position = list.indexOfFirst { it == id }
+//                    if (position > -1) {
+//                        adapter?.setItems(list)
+//                    }
+//                }
+//        )
 
-        adapter?.setHasStableIds(true)
+//        adapter?.setHasStableIds(true)
 
         recycler_view.setHasFixedSize(true)
 
@@ -118,12 +121,10 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
 
     override fun onResume() {
         super.onResume()
-        // add scroll listener
         recycler_view.addOnScrollListener(scrollListener)
     }
 
     override fun onPause() {
-        // remove scroll listener
         recycler_view.removeOnScrollListener(scrollListener)
         super.onPause()
     }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:icon="@drawable/shape__2_"
+        app:showAsAction="ifRoom"
+        android:title="">
+
+        <menu>
+
+
+            <item android:id="@+id/menu_change"
+                android:title="@string/menu_send_avtor"
+                android:icon="@drawable/vector__2_"
+                app:showAsAction="never"/>
+
+            <item android:id="@+id/menu_changes"
+                android:title="@string/menu_qosymshamen_bolisu"
+                android:icon="@drawable/icon_share"
+                app:showAsAction="never"/>
+
+            <item android:id="@+id/menu_changes_one"
+                android:title="@string/menu_magan_kosymsha_kerek"
+                android:icon="@drawable/vector__3_"
+                app:showAsAction="never"/>
+
+
+
+        </menu>
+
+
+    </item>
+
+
+</menu>

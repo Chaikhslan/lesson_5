@@ -2,7 +2,6 @@ package com.example.lesson_5
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.text.isDigitsOnly
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_message.view.*
 
@@ -21,7 +20,7 @@ class NameAdapter(private val clickListener: (name: String) -> Unit) : RecyclerV
         (holder as NameViewHolder).bind(data[position], clickListener)
     }
 
-    override fun getItemId(position: Int): Long = data[position].toLong()
+//    override fun getItemId(position: Int): Long = data[position].toLong()
 
     fun setItems(list: List<String>) {
         data.clear()
