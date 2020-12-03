@@ -2,10 +2,12 @@ package com.example.lesson_5
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.text.isDigitsOnly
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_message.view.*
 
 class NameAdapter(private val clickListener: (name: String) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     private val data = mutableListOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -18,6 +20,8 @@ class NameAdapter(private val clickListener: (name: String) -> Unit) : RecyclerV
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as NameViewHolder).bind(data[position], clickListener)
     }
+
+    override fun getItemId(position: Int): Long = data[position].toLong()
 
     fun setItems(list: List<String>) {
         data.clear()

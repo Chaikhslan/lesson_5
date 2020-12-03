@@ -71,6 +71,6 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/edit_text_translator"
-        android:layout_margin="16dp"/>
+        android:layout_margin="6dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
