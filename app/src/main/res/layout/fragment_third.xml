@@ -7,6 +7,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ThirdFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/white"
+        tools:ignore="MissingConstraints" />
+
 <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
 <!--        android:id="@+id/bottom_navigation_menu"-->
 <!--        android:layout_width="match_parent"-->
@@ -21,7 +30,7 @@
         android:background="@drawable/_1edc046eb80046ee4755ee71d0f19ca_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
@@ -53,5 +62,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/edit_text_translator"
         app:layout_constraintTop_toTopOf="@id/edit_text_translator" />
+
+    <ImageView
+        android:id="@+id/btn_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group_61"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/edit_text_translator"
+        android:layout_margin="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

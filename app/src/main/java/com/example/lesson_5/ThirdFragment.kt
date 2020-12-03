@@ -2,17 +2,32 @@ package com.example.lesson_5
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSmoothScroller
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_third.*
-import java.lang.StringBuilder
+
 
 class ThirdFragment : Fragment(R.layout.fragment_third) {
 
     private var adapter: NameAdapter? = null
     private val list = mutableListOf<String>()
+    private var layoutManager: LinearLayoutManager? = null
+    private val scrollListener = object : RecyclerView.OnScrollListener() {
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+        }
+
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            if (dx == 0) {
+                btn_scroll.isGone
+            } else btn_scroll.visibility
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +46,31 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
                 Toast.makeText(context, "Введите сообщения", Toast.LENGTH_LONG).show()
             } else messageLatin(text)
         }
+//        btn_scroll.setOnClickListener {
+//            Toast.makeText(context, "сообщения", Toast.LENGTH_LONG).show()
+//            recycler_view.scrollToPosition(list.size)
+//        }
+        btn_scroll.setOnClickListener(View.OnClickListener {
+//            v -> v.visibility = View.GONE
+            scrollToTop()
+        })
+
+
+        layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        recycler_view.layoutManager = layoutManager
+
+        adapter?.setItems(list)
     }
+
+    private fun scrollToTop() {
+        val smoothScroller = object : LinearSmoothScroller(context){
+            override fun getVerticalSnapPreference(): Int =
+                    SNAP_TO_END
+        }
+        smoothScroller.targetPosition = list.size
+        layoutManager?.startSmoothScroll(smoothScroller)
+    }
+
 
     private fun messageLatin(text: String): String {
         val message = StringBuilder()
@@ -57,10 +96,22 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
                 }
             }
         }
-//        list.add(edit_text_translator.text.toString())
+        list.add(edit_text_translator.text.toString())
         list.add(message.toString())
         adapter?.setItems(list)
         return message.toString()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // add scroll listener
+        recycler_view.addOnScrollListener(scrollListener)
+    }
+
+    override fun onPause() {
+        // remove scroll listener
+        recycler_view.removeOnScrollListener(scrollListener)
+        super.onPause()
     }
 
 }
