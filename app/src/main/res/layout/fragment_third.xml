@@ -6,15 +6,15 @@
     android:layout_height="wrap_content"
     tools:context=".ThirdFragment">
 
-    <ImageSwitcher
-        android:id="@+id/imageSwitcher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onSwitcherClick"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/recycler_view"
-        tools:ignore="OnClick">
+<!--    <ImageSwitcher-->
+<!--        android:id="@+id/imageSwitcher"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:onClick="onSwitcherClick"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/recycler_view"-->
+<!--        tools:ignore="OnClick">-->
 
         <ImageView
             android:id="@+id/moon_style"
@@ -26,17 +26,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/sun_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:contentDescription="TODO"
-            android:src="@drawable/group_63"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <ImageView-->
+<!--            android:id="@+id/sun_style"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:contentDescription="TODO"-->
+<!--            android:src="@drawable/group_63"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-    </ImageSwitcher>
+<!--    </ImageSwitcher>-->
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageSwitcher"
+        app:layout_constraintStart_toEndOf="@+id/moon_style"
         app:menu="@menu/first_menu"
         app:title="@string/translator_first"
         app:titleTextColor="@android:color/black"

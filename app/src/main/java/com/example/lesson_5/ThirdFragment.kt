@@ -3,7 +3,9 @@ package com.example.lesson_5
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageSwitcher
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,14 +36,16 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
-        changeStyle()
+        changeStyleSun(view)
     }
 
-    private fun changeStyle() {
-        moon_style.setOnClickListener {
 
+    private fun changeStyleSun(view: View) {
+        moon_style.setOnClickListener {
+            moon_style.setImageResource(R.drawable.group_63)
         }
     }
+
 
     private fun setupView() {
         adapter = NameAdapter {
@@ -57,7 +61,7 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         }
         btn_scroll.setOnClickListener(View.OnClickListener {
 //            v -> v.visibility = View.GONE
-            scrollToTop()
+            scrollToBot()
         })
 
 //        adapter = Adapter(
@@ -79,7 +83,7 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         adapter?.setItems(list)
     }
 
-    private fun scrollToTop() {
+    private fun scrollToBot() {
         val smoothScroller = object : LinearSmoothScroller(context) {
             override fun getVerticalSnapPreference(): Int =
                     SNAP_TO_END
