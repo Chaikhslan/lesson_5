@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:contentDescription="TODO"
-            android:src="@drawable/group_62"
+            android:src="@drawable/group_63"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

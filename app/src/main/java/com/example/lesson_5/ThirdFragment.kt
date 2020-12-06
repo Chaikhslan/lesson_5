@@ -1,5 +1,6 @@
 package com.example.lesson_5
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -7,6 +8,7 @@ import android.widget.ImageButton
 import android.widget.ImageSwitcher
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
@@ -42,7 +44,18 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
 
     private fun changeStyleSun(view: View) {
         moon_style.setOnClickListener {
-            moon_style.setImageResource(R.drawable.group_63)
+            val themePreferences = context?.let { it -> ThemePreferences(it) }
+            if ( AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO ) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                themePreferences?.setThemeState("dark")
+                restartApp()
+                Log.d("click", "worksss")
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                restartApp()
+                themePreferences?.setThemeState("white")
+                Log.d("click", "works")
+            }
         }
     }
 
@@ -133,4 +146,8 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         super.onPause()
     }
 
+    private fun restartApp() {
+        val intent = Intent(context, MainActivity::class.java)
+        startActivity(intent)
+    }
 }

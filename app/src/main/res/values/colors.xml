@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="black_moon">#6A6969</color>
     <color name="blue">#1789DB</color>
+    <color name="blue80">#CC1789DB</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_dark">#0FEFEFEF</color>
     <color name="blue_sky">#D5ECCF</color>
 </resources>

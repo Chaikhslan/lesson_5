@@ -7,6 +7,7 @@
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
+        <item name="background">@drawable/_1edc046eb80046ee4755ee71d0f19ca_1</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
@@ -23,10 +24,14 @@
         <item name="colorOnBackground">@color/black_moon</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
+        <item name="icon">@drawable/group_62</item>
+        <item name="background">@drawable/moon_background</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="colorAccent">#DB7517</item>
+        <item name="backgroundColor">@color/black_moon</item>
     </style>
 </resources>
