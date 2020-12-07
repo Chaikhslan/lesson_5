@@ -3,18 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".ThirdFragment">
+    android:layout_height="match_parent"
+    tools:context=".ui.ThirdFragment">
 
-<!--    <ImageSwitcher-->
-<!--        android:id="@+id/imageSwitcher"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:onClick="onSwitcherClick"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/recycler_view"-->
-<!--        tools:ignore="OnClick">-->
 
         <ImageView
             android:id="@+id/moon_style"
@@ -22,21 +13,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:contentDescription="TODO"
-            android:src="@drawable/group_63"
+            android:src="@drawable/group_62"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/sun_style"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:contentDescription="TODO"-->
-<!--            android:src="@drawable/group_63"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    </ImageSwitcher>-->
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -50,39 +30,23 @@
         app:titleTextColor="@android:color/black"
         tools:ignore="MissingConstraints" />
 
-    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--        android:id="@+id/bottom_navigation_menu"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="0dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:menu="@menu/bottom_nav_menu"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="460dp"
-        android:background="@drawable/_1edc046eb80046ee4755ee71d0f19ca_1"
+        android:background="@drawable/background"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/text_view"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="460dp"-->
-    <!--        android:background="@drawable/_1edc046eb80046ee4755ee71d0f19ca_1"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <EditText
         android:id="@+id/edit_text_translator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/image_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recycler_view"

@@ -1,25 +1,28 @@
-package com.example.lesson_5
+package com.example.lesson_5.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.ImageSwitcher
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
+import com.example.lesson_5.MainActivity
+import com.example.lesson_5.adapters.NameAdapter
+import com.example.lesson_5.R
+import com.example.lesson_5.ThemePreferences
+import com.example.lesson_5.model.MessageKir
 import kotlinx.android.synthetic.main.fragment_third.*
 
 
 class ThirdFragment : Fragment(R.layout.fragment_third) {
 
     private var adapter: NameAdapter? = null
-    private val list = mutableListOf<String>()
+    private val list = mutableListOf<MessageKir>()
     private var mImageSwitcher: ImageSwitcher? = null
     private var layoutManager: LinearLayoutManager? = null
     private val scrollListener = object : RecyclerView.OnScrollListener() {
@@ -73,7 +76,6 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
             } else messageLatin(text)
         }
         btn_scroll.setOnClickListener(View.OnClickListener {
-//            v -> v.visibility = View.GONE
             scrollToBot()
         })
 
@@ -130,8 +132,10 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
                 }
             }
         }
-        list.add(edit_text_translator.text.toString())
-        list.add(message.toString())
+        val itemMessage = MessageKir(message_kir = "", message_lat = "")
+        itemMessage.message_kir = edit_text_translator.text.toString()
+        itemMessage.message_lat = message.toString()
+        list.add(itemMessage)
         adapter?.setItems(list)
         return message.toString()
     }
