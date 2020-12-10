@@ -8,4 +8,8 @@
     <attr name="backgroundImage" format="reference" tools:ignore="MissingDefaultResource" />
     <attr name="icon" format="reference" tools:ignore="MissingDefaultResource" />
     <attr name="labelTextColor" format="color" tools:ignore="MissingDefaultResource" />
+    <attr name="btnSend" format="color" tools:ignore="MissingDefaultResource" />
+    <attr name="btnMenu" format="color" tools:ignore="MissingDefaultResource" />
+    <attr name="btnScroll" format="color" tools:ignore="MissingDefaultResource" />
+    <attr name="translator_first" format="color" tools:ignore="MissingDefaultResource" />
 </resources>

@@ -21,6 +21,9 @@
         <item name="iconColor">@color/colorIcon</item>
         <item name="sendMessageColor">@color/colorSendMessage</item>
         <item name="labelTextColor">@color/colorTextLabel</item>
+        <item name="btnSend">@drawable/vector__1_</item>
+        <item name="btnMenu">@drawable/menu_yellow</item>
+        <item name="btnScroll">@drawable/group_61</item>
     </style>
 
     <!-- Moon style -->
@@ -36,5 +39,8 @@
         <item name="iconColor">@color/colorIconDarkMode</item>
         <item name="sendMessageColor">@color/colorSendMessageDarkMode</item>
         <item name="labelTextColor">@color/colorIconDarkMode</item>
+        <item name="btnSend">@drawable/btn_send</item>
+        <item name="btnMenu">@drawable/menu_yellow</item>
+        <item name="btnScroll">@drawable/scroll_yellow</item>
     </style>
 </resources>
