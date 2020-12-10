@@ -24,10 +24,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="?attr/backgroundColor"
         app:layout_constraintStart_toEndOf="@+id/moon_style"
         app:menu="@menu/first_menu"
         app:title="@string/translator_first"
-        app:titleTextColor="@android:color/black"
+        app:titleTextColor="?attr/titleTextColor"
         tools:ignore="MissingConstraints" />
 
 

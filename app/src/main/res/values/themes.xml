@@ -18,11 +18,12 @@
         <item name="backgroundImage">@drawable/background</item>
         <item name="buttonColor">@color/colorButton</item>
         <item name="textColor">@color/colorTextMessage</item>
+        <item name="titleTextColor">@color/colorTextMessage</item>
         <item name="iconColor">@color/colorIcon</item>
         <item name="sendMessageColor">@color/colorSendMessage</item>
         <item name="labelTextColor">@color/colorTextLabel</item>
         <item name="btnSend">@drawable/vector__1_</item>
-        <item name="btnMenu">@drawable/menu_yellow</item>
+        <item name="btnMenu">@drawable/shape__2_</item>
         <item name="btnScroll">@drawable/group_61</item>
     </style>
 
@@ -30,12 +31,14 @@
     <style name="Theme.Lesson_moon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimaryDarkMode</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/colorBackgroundDarkMode</item>
         <item name="colorAccent">#DB7517</item>
         <item name="backgroundColor">@color/colorBackgroundDarkMode</item>
         <item name="icon">@drawable/group_63</item>
         <item name="backgroundImage">@drawable/moon_background</item>
         <item name="buttonColor">@color/colorPrimaryDarkMode</item>
         <item name="textColor">@color/colorTextMessageDarkMode</item>
+        <item name="titleTextColor">@color/colorTextMessageDarkMode</item>
         <item name="iconColor">@color/colorIconDarkMode</item>
         <item name="sendMessageColor">@color/colorSendMessageDarkMode</item>
         <item name="labelTextColor">@color/colorIconDarkMode</item>

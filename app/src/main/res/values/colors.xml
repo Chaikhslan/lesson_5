@@ -26,6 +26,7 @@
     <color name="colorSendMessageDarkMode">#074A46</color>
     <color name="colorIcon">#949494</color>
     <color name="colorIconDarkMode">#FFF</color>
+    <color name="titleTextColor">#FFF</color>
     <color name="colorTextMessage">#000</color>
     <color name="colorTextMessageDarkMode">#FFF</color>
     <color name="colorTextLabel">#757575</color>

@@ -8,4 +8,10 @@
     <string name="menu_send_avtor">Avtorga hat jazy</string>
     <string name="menu_qosymshamen_bolisu">Qosymshamen bolisu</string>
     <string name="menu_magan_kosymsha_kerek">Magan kosymsha kerek</string>
+    <string name="menu_copy_text">Kóshіrý</string>
+    <string name="menu_share_text">Bólіsý</string>
+    <string name="menu_delete_text">Óshіrý</string>
+    <string name="menu_favorite_text">Unaǵandar tіzіmіne qosý</string>
+    <string name="snack_string">элемент удалился из избранных</string>
+    <string name="undo_string">Отменить</string>
 </resources>

@@ -4,7 +4,9 @@
     <attr name="buttonColor" format="color" tools:ignore="MissingDefaultResource" />
     <attr name="sendMessageColor" format="color" tools:ignore="MissingDefaultResource" />
     <attr name="iconColor" format="color" tools:ignore="MissingDefaultResource" />
+    <attr name="colorOnPrimary" format="color" tools:ignore="MissingDefaultResource" />
     <attr name="textColor" format="color" tools:ignore="MissingDefaultResource" />
+    <attr name="titleTextColor" format="color" tools:ignore="MissingDefaultResource" />
     <attr name="backgroundImage" format="reference" tools:ignore="MissingDefaultResource" />
     <attr name="icon" format="reference" tools:ignore="MissingDefaultResource" />
     <attr name="labelTextColor" format="color" tools:ignore="MissingDefaultResource" />

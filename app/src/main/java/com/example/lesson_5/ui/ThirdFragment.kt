@@ -1,10 +1,13 @@
 package com.example.lesson_5.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageSwitcher
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -42,6 +45,34 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
         changeStyleSun(view)
+        lovely()
+    }
+
+    @SuppressLint("ResourceType")
+    private fun lovely() {
+        recycler_view.setOnClickListener {
+
+//            val dialog = AlertFragment()
+//            dialog.show(supportFragmentManager, "alertDialog")
+
+            val popupMenu = PopupMenu(context, it)
+            popupMenu.setOnMenuItemClickListener { item ->
+                when (item.itemId){
+                    R.layout.fragment_alert -> {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://resoder.com"))
+                        startActivity(intent)
+                        true
+                    }
+                    R.layout.fragment_alert -> {
+                        Toast.makeText(context,"Show Toast",Toast.LENGTH_LONG).show()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu.inflate(R.layout.fragment_alert)
+            popupMenu.show()
+        }
     }
 
 
@@ -52,12 +83,10 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 themePreferences?.setThemeState("dark")
                 restartApp()
-                Log.d("click", "worksss")
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 restartApp()
                 themePreferences?.setThemeState("white")
-                Log.d("click", "works")
             }
         }
     }
