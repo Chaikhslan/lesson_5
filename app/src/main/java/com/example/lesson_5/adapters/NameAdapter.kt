@@ -1,7 +1,19 @@
 package com.example.lesson_5.adapters
 
+import android.annotation.SuppressLint
+import android.app.Dialog
+import android.content.Context
+import android.graphics.Color
+import android.graphics.Color.green
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.PopupWindow
+import androidx.appcompat.view.menu.MenuBuilder
+import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson_5.R
 import com.example.lesson_5.model.MessageKir
@@ -34,6 +46,32 @@ class NameAdapter(private val clickListener: (name: String) -> Unit) : RecyclerV
         RecyclerView.ViewHolder(inflater.inflate(R.layout.item_message, parent, false)) {
         private val messageTextView = itemView.chat_user_message
         private val messageResultView = itemView.chat_user_message_two
+        private val recyclerView = itemView.recycler_view_message
+
+        init {
+            recyclerView.setOnClickListener {
+
+                val pop = PopupMenu(recyclerView.context,it)
+                val popupWindow = PopupWindow(recyclerView.context)
+//                popupWindow.contentView = recyclerView
+                popupWindow.showAsDropDown(recyclerView)
+
+                pop.inflate(R.menu.alert_menu)
+
+                pop.setOnMenuItemClickListener { item ->
+                    when(item.itemId){
+                        R.id.menu_copy->{ }
+                        R.id.menu_share->{ }
+                        R.id.menu_delete->{ }
+                        R.id.menu_favorite->{ }
+                    }
+                    true
+                }
+                pop.show()
+                true
+            }
+        }
+
 
         fun bind(item: MessageKir, clickListener: (name: String) -> Unit) {
             messageTextView.text = item.toString()

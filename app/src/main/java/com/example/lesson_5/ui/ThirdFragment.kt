@@ -2,9 +2,12 @@ package com.example.lesson_5.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.widget.ImageSwitcher
 import android.widget.PopupMenu
@@ -15,11 +18,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson_5.MainActivity
-import com.example.lesson_5.adapters.NameAdapter
 import com.example.lesson_5.R
 import com.example.lesson_5.ThemePreferences
+import com.example.lesson_5.adapters.NameAdapter
+import com.google.gson.reflect.TypeToken
 import com.example.lesson_5.model.MessageKir
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_third.*
+
+private const val MESSAGE_LIST = "message_list"
 
 
 class ThirdFragment : Fragment(R.layout.fragment_third) {
@@ -27,6 +34,7 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
     private var adapter: NameAdapter? = null
     private val list = mutableListOf<MessageKir>()
     private var mImageSwitcher: ImageSwitcher? = null
+    private var prefs: SharedPreferences? = null
     private var layoutManager: LinearLayoutManager? = null
     private val scrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
