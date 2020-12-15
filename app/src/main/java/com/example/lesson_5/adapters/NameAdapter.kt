@@ -74,8 +74,8 @@ class NameAdapter(private val clickListener: (name: String) -> Unit) : RecyclerV
 
 
         fun bind(item: MessageKir, clickListener: (name: String) -> Unit) {
-            messageTextView.text = item.toString()
-            messageResultView.text = item.toString()
+            messageTextView.text = item.message_kir
+            messageResultView.text = item.message_lat
             messageTextView.setOnClickListener {
                 clickListener(item.toString())
             }
