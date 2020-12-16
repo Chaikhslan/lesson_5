@@ -91,6 +91,8 @@
         app:layout_constraintTop_toTopOf="@id/menu_favorite"
         app:layout_constraintStart_toEndOf="@id/menu_favorite"
         android:layout_marginStart="15dp"
+        android:clickable="true"
+        android:focusable="true"
         android:textSize="16sp"
         android:textColor="@color/black"/>
 

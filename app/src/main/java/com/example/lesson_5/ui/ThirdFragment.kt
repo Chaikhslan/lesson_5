@@ -3,15 +3,12 @@ package com.example.lesson_5.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.Uri
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.util.Log
-import android.view.Menu
 import android.view.View
 import android.widget.ImageSwitcher
-import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,10 +18,12 @@ import com.example.lesson_5.MainActivity
 import com.example.lesson_5.R
 import com.example.lesson_5.ThemePreferences
 import com.example.lesson_5.adapters.NameAdapter
-import com.google.gson.reflect.TypeToken
 import com.example.lesson_5.model.MessageKir
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_third.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
 
 private const val MESSAGE_LIST = "message_list"
 
@@ -51,35 +50,40 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        CoroutineScope(Dispatchers.IO).launch {
+            lovely()
+        }
         setupView()
         changeStyleSun(view)
-        lovely()
     }
 
     @SuppressLint("ResourceType")
     private fun lovely() {
         recycler_view.setOnClickListener {
 
-//            val dialog = AlertFragment()
-//            dialog.show(supportFragmentManager, "alertDialog")
+//            val builder = AlertDialog.Builder(context!!)
+//                .setMessage(R.string.menu_copy_text)
+//                .setIcon(R.drawable.icon_copy)
+//                .show()
 
-            val popupMenu = PopupMenu(context, it)
-            popupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId){
-                    R.layout.fragment_alert -> {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://resoder.com"))
-                        startActivity(intent)
-                        true
-                    }
-                    R.layout.fragment_alert -> {
-                        Toast.makeText(context,"Show Toast",Toast.LENGTH_LONG).show()
-                        true
-                    }
-                    else -> false
-                }
-            }
-            popupMenu.inflate(R.layout.fragment_alert)
-            popupMenu.show()
+
+//            val popupMenu = PopupMenu(context, it)
+//            popupMenu.setOnMenuItemClickListener { item ->
+//                when (item.itemId){
+//                    R.layout.fragment_alert -> {
+//                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://resoder.com"))
+//                        startActivity(intent)
+//                        true
+//                    }
+//                    R.layout.fragment_alert -> {
+//                        Toast.makeText(context,"Show Toast",Toast.LENGTH_LONG).show()
+//                        true
+//                    }
+//                    else -> false
+//                }
+//            }
+//            popupMenu.inflate(R.layout.fragment_alert)
+//            popupMenu.show()
         }
     }
 
@@ -116,16 +120,6 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
             scrollToBot()
         })
 
-//        adapter = Adapter(
-//                onDeleteClickListener = { id: Long ->
-//                    val position = list.indexOfFirst { it == id }
-//                    if (position > -1) {
-//                        adapter?.setItems(list)
-//                    }
-//                }
-//        )
-
-//        adapter?.setHasStableIds(true)
 
         recycler_view.setHasFixedSize(true)
 
@@ -190,5 +184,10 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
     private fun restartApp() {
         val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
     }
 }

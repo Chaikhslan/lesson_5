@@ -12,11 +12,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.PopupWindow
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson_5.R
 import com.example.lesson_5.model.MessageKir
+import kotlinx.android.synthetic.main.fragment_alert.view.*
 import kotlinx.android.synthetic.main.item_message.view.*
 
 class NameAdapter(private val clickListener: (name: String) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -42,6 +45,7 @@ class NameAdapter(private val clickListener: (name: String) -> Unit) : RecyclerV
         notifyDataSetChanged()
     }
 
+    @SuppressLint("InflateParams")
     private class NameViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.item_message, parent, false)) {
         private val messageTextView = itemView.chat_user_message
@@ -51,24 +55,14 @@ class NameAdapter(private val clickListener: (name: String) -> Unit) : RecyclerV
         init {
             recyclerView.setOnClickListener {
 
-                val pop = PopupMenu(recyclerView.context,it)
-                val popupWindow = PopupWindow(recyclerView.context)
-//                popupWindow.contentView = recyclerView
-                popupWindow.showAsDropDown(recyclerView)
+                val mAlertDialog = LayoutInflater.from(itemView.context).inflate(R.layout.fragment_alert, null)
+                val mBuilder = AlertDialog.Builder(itemView.context)
+                    .setView(mAlertDialog)
+                    val mAlert = mBuilder.show()
 
-                pop.inflate(R.menu.alert_menu)
-
-                pop.setOnMenuItemClickListener { item ->
-                    when(item.itemId){
-                        R.id.menu_copy->{ }
-                        R.id.menu_share->{ }
-                        R.id.menu_delete->{ }
-                        R.id.menu_favorite->{ }
-                    }
-                    true
+                mAlertDialog.text_favorite.setOnClickListener {
+                    Toast.makeText(itemView.context,"aaa",Toast.LENGTH_LONG).show()
                 }
-                pop.show()
-                true
             }
         }
 
